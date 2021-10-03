@@ -136,9 +136,9 @@
                                        HorizontalAlignment="Center"
                                       Source="/Assets/home.png" />
                                     <TextBlock Grid.Column="1" 
-                                               Text="Inicio" 
+                                               Text="INICIO" 
                                                FontWeight="SemiBold"
-                                               FontSize="20"
+                                               FontSize="15"
                                                Foreground="White"
                                                VerticalAlignment="Center"
                                                >
@@ -165,9 +165,9 @@
                                        HorizontalAlignment="Center"
                                       Source="/Assets/mantenimiento.png" />
                                     <TextBlock Grid.Column="1" 
-                                               Text="Mantenimiento" 
+                                               Text="MANTENIMIENTO" 
                                                FontWeight="SemiBold"
-                                               FontSize="20"
+                                               FontSize="15"
                                                Foreground="White"
                                                VerticalAlignment="Center"
                                                >
@@ -188,14 +188,14 @@
                                         <ColumnDefinition Width="60" />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="50"
+                                    <Image Width="45"
                                        Grid.Column="0"
                                        HorizontalAlignment="Center"
                                       Source="/Assets/inspeccion.png" Margin="9,0,1,0" />
                                     <TextBlock Grid.Column="1" 
-                                               Text="Inspección" 
+                                               Text="INSPECCIÓN" 
                                                FontWeight="SemiBold"
-                                               FontSize="20"
+                                               FontSize="15"
                                                Foreground="White"
                                                VerticalAlignment="Center"
                                                >
@@ -216,14 +216,70 @@
                                         <ColumnDefinition Width="60" />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="40"
+                                    <Image Width="35"
                                        Grid.Column="0"
                                        HorizontalAlignment="Center"
                                       Source="/Assets/car.png" />
                                     <TextBlock Grid.Column="1" 
-                                               Text="Renta" 
+                                               Text="RENTA" 
                                                FontWeight="SemiBold"
-                                               FontSize="20"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"
+                                               >
+                                    </TextBlock>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="90">
+                            <Button x:Name="BtnBusc"
+                                        Height="70"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="35"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                      Source="/Assets/lupa.png" />
+                                    <TextBlock Grid.Column="1" 
+                                               Text="CONSULTA" 
+                                               FontWeight="SemiBold"
+                                               FontSize="15"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"
+                                               >
+                                    </TextBlock>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="90">
+                            <Button x:Name="BtnReporte"
+                                        Height="70"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="35"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                      Source="/Assets/reporte.png" />
+                                    <TextBlock Grid.Column="1" 
+                                               Text="REPORTES" 
+                                               FontWeight="SemiBold"
+                                               FontSize="15"
                                                Foreground="White"
                                                VerticalAlignment="Center"
                                                >
