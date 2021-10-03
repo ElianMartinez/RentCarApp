@@ -1,0 +1,264 @@
+﻿<Window x:Class="RentCarApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentCarApp"
+        mc:Ignorable="d"
+        Title="Inicio" WindowStyle="None" AllowsTransparency="True" 
+        Background="Transparent" Height="800" Width="1224" WindowStartupLocation="CenterScreen">
+    <Border CornerRadius="10" Background="GhostWhite">
+        
+    <Grid Name="Principal" Background="Transparent">
+        <!--#REGION HEADER -->
+        <Grid Height="55" VerticalAlignment="Top" Background="Transparent">
+                <Border CornerRadius="10,10,0,0" Background="#0085c1"/>
+                <TextBlock Grid.Row="1"
+                           Foreground="White"
+                           Text="Rent Car"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0,5,0,0" FontSize="24" FontWeight="Bold"
+                    ></TextBlock>
+                <!--#REGION FUNCTIONAL BUTTONS  -->
+                <Button x:Name="BtnMin" 
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Height="30"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="0,10,50,0" Click="BtnMin_Click"
+                        >
+                    <Image Source="/Assets/min.png" Cursor="Hand" Style="{DynamicResource ImageStyle1}"></Image>
+                </Button>
+                <Button x:Name="BtnClose" 
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Height="30"
+                        Width="30"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="0,10,10,0" Click="BtnClose_Click"
+                        >
+                    <Image Source="/Assets/cancel (2).png" Cursor="Hand"></Image>
+                </Button>
+                <!--#ENDREGION -->
+            </Grid>
+        <!--#ENDREGION -->
+        <!--#region SIDEBAR -->
+            <Grid x:Name="GridMenu"
+                      Background="Transparent"
+                      Width="75"
+                      HorizontalAlignment="Left"
+                      Margin="0,55,0,0">
+                <Border Background="#005990" 
+                              CornerRadius="0,0,0,10" />
+                <!---#REGION MENU -->
+                <StackPanel Background="Transparent"
+                                VerticalAlignment="Top">
+                    <Grid Background="Transparent"
+                              VerticalAlignment="Top"
+                              HorizontalAlignment="Right"
+                              Margin="0,10,20,0">
+                        <ToggleButton x:Name="BtnShowHide"
+                                          Width="30"
+                                          Height="30"
+                                      Cursor="Hand"
+                                          BorderBrush="Transparent" Checked="TBShow" Unchecked="TBHide">
+                            <ToggleButton.Background>
+                                <ImageBrush  ImageSource="/Assets/list.png"></ImageBrush>
+                            </ToggleButton.Background>
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HidePanel">
+                                            <DoubleAnimation Storyboard.TargetName="GridMenu" 
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                            From="250"
+                                                            To="75"
+                                                             Duration="0:0:0:0.25"/>
+                                            <DoubleAnimation
+                Storyboard.TargetName="GridContent"
+                Storyboard.TargetProperty="Width"
+               BeginTime="0:0:0"
+                From="974"
+                To="1149"
+                Duration="0:0:0:0.25"
+                 />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="ShowPanel">
+                                            <DoubleAnimation Storyboard.TargetName="GridMenu" 
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                            From="75"
+                                                            To="250"
+                                                             Duration="0:0:0:0.25"/>
+                                            <DoubleAnimation
+                Storyboard.TargetName="GridContent"
+                Storyboard.TargetProperty="Width"
+               BeginTime="0:0:0"
+                From="1149"
+                To="974"
+                Duration="0:0:0:0.25"
+                 />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+                    </Grid>
+                    <ListView Background="Transparent"
+                                  BorderBrush="Transparent"
+                                  Margin="0,30,0,0"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <!--#region INICIO -->
+                        <ListViewItem Height="90">
+                            <Button x:Name="BtnInicio"
+                                        Height="70"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent" Click="home_click">
+                                <Grid Width="250">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image Width="30"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                      Source="/Assets/home.png" />
+                                    <TextBlock Grid.Column="1" 
+                                               Text="Inicio" 
+                                               FontWeight="SemiBold"
+                                               FontSize="20"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"
+                                               >
+                                    </TextBlock>
+            </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="90"
+                                          >
+                            <Button x:Name="BtnMant"
+                                        Height="70"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="30"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                      Source="/Assets/mantenimiento.png" />
+                                    <TextBlock Grid.Column="1" 
+                                               Text="Mantenimiento" 
+                                               FontWeight="SemiBold"
+                                               FontSize="20"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"
+                                               >
+                                    </TextBlock>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="90">
+                            <Button x:Name="BtnInsp"
+                                        Height="70"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="50"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                      Source="/Assets/inspeccion.png" Margin="9,0,1,0" />
+                                    <TextBlock Grid.Column="1" 
+                                               Text="Inspección" 
+                                               FontWeight="SemiBold"
+                                               FontSize="20"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"
+                                               >
+                                    </TextBlock>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="90">
+                            <Button x:Name="BtnRent"
+                                        Height="70"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="250">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="40"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                      Source="/Assets/car.png" />
+                                    <TextBlock Grid.Column="1" 
+                                               Text="Renta" 
+                                               FontWeight="SemiBold"
+                                               FontSize="20"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"
+                                               >
+                                    </TextBlock>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+
+
+                        <!--#endregion-->
+                    </ListView>
+                </StackPanel>
+                
+                <!---#ENDREGION-->
+                
+            </Grid>
+            <!--#endregion-->
+        <!--#region CONTENT -->
+            <Grid x:Name="GridContent"
+                  Background="Transparent"
+                  VerticalAlignment="Bottom"
+                  HorizontalAlignment="Right"
+                  Height="745"
+                  Width="1,149" 
+                  PreviewMouseLeftButtonDown="PreviewMouseBtnDown"
+                  >
+                <Border CornerRadius="0,0,0,10" Background="Transparent" />
+                <TextBlock Text="InfoTOolsSV" VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           FontSize="30" />
+
+            </Grid>
+        <!--#endregion-->
+
+        </Grid>
+
+    </Border>
+</Window>
