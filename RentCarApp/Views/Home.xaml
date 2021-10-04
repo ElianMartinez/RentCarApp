@@ -17,13 +17,45 @@
                 <ColumnDefinition Width="20" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="2" FontSize="40" Text="Home" Foreground="#005990" Margin="129,0,10,0" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+            <Grid Grid.Column="1" Grid.Row="1" Width="300" Height="150" Background="Transparent">
+                <Border CornerRadius="10" Background="#005990">
+                    <Grid>
+                        <Image Width="64" Source="/Assets/car.png" Margin="48,-21,188,21" ></Image>
+                        <TextBlock Text="Vehículos" FontSize="25" Foreground="White" FontWeight="Bold" Margin="22,91,-22,-91" ></TextBlock>
+                        <TextBlock x:Name="valorVehiculos" Text="380" FontSize="45" Foreground="White" FontWeight="Bold" Margin="172,42,-172,-42" ></TextBlock>
+
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="1" Width="300" Height="150" Background="Transparent">
+                <Border CornerRadius="10" Background="#005990">
+                    <Grid>
+                        <Image Width="64" Source="/Assets/empleado.png" Margin="48,-21,188,21" ></Image>
+                        <TextBlock Text="Empleados" FontSize="25" Foreground="White" FontWeight="Bold" Margin="22,91,-22,-91" ></TextBlock>
+                        <TextBlock x:Name="valorEmpleados" Text="380" FontSize="45" Foreground="White" FontWeight="Bold" Margin="172,42,-172,-42" ></TextBlock>
+
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="3" Grid.Row="1" Width="300" Height="150" Background="Transparent">
+                <Border CornerRadius="10" Background="#005990">
+                    <Grid>
+                        <Image Width="64" Source="/Assets/alquilar.png" Margin="48,-21,188,21" ></Image>
+                        <TextBlock Text="Rentas Activas" FontSize="25" Foreground="White" FontWeight="Bold" Margin="22,91,-22,-91" ></TextBlock>
+                        <TextBlock x:Name="valorRentas" Text="380" FontSize="45" Foreground="White" FontWeight="Bold" Margin="172,42,-172,-42" ></TextBlock>
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
     </Border>
     <!--#endregion-->
-    
-   
+
+
 </UserControl>

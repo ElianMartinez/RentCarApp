@@ -20,9 +20,28 @@ namespace RentCarApp.Views
     /// </summary>
     public partial class Home : UserControl
     {
+        
         public Home()
         {
             InitializeComponent();
+            Refresh();
+
         }
+
+        private void Refresh()
+        {
+            using (Models.rentcarEntities db = new Models.rentcarEntities())
+            {
+                int cantidadVehiculos = db.VEHICULOS.Count();    
+                int cantidadEmpleados = db.EMPLEADO.Count();
+                int cantidadRENTAS = db.RENTA.Where(o => o.ESTADO == "A").Count();
+
+                valorEmpleados.Text = cantidadEmpleados.ToString();
+                valorRentas.Text = cantidadRENTAS.ToString();
+                valorVehiculos.Text = cantidadVehiculos.ToString();
+            }
+        }
+
+       
     }
 }

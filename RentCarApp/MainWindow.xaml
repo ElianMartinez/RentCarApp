@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RentCarApp"
+        xmlns:local="clr-namespace:RentCarApp" xmlns:viewmodels="clr-namespace:RentCarApp.Views"
         mc:Ignorable="d"
         Title="Inicio" WindowStyle="None" AllowsTransparency="True" 
         Background="Transparent" Height="800" Width="1224" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate x:Name="Home" DataType="{x:Type viewmodels:Home}">
+            <viewmodels:Home DataContext="Binding" />
+        </DataTemplate>
+    </Window.Resources>
     <Border CornerRadius="10" Background="GhostWhite">
         
     <Grid Name="Principal" Background="Transparent">
@@ -30,7 +35,7 @@
                         VerticalAlignment="Top"
                         Margin="0,10,50,0" Click="BtnMin_Click"
                         >
-                    <Image Source="/Assets/min.png" Cursor="Hand" Style="{DynamicResource ImageStyle1}"></Image>
+                    <Image Source="/Assets/min.png" Cursor="Hand" ></Image>
                 </Button>
                 <Button x:Name="BtnClose" 
                         Background="Transparent"
@@ -42,6 +47,7 @@
                         Margin="0,10,10,0" Click="BtnClose_Click"
                         >
                     <Image Source="/Assets/cancel (2).png" Cursor="Hand"></Image>
+                    
                 </Button>
                 <!--#ENDREGION -->
             </Grid>
@@ -127,11 +133,11 @@
                                     Background="Transparent"
                                     BorderBrush="Transparent" Click="home_click">
                                 <Grid Width="250">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Image Width="30"
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="30"
                                        Grid.Column="0"
                                        HorizontalAlignment="Center"
                                       Source="/Assets/home.png" />
@@ -143,7 +149,7 @@
                                                VerticalAlignment="Center"
                                                >
                                     </TextBlock>
-            </Grid>
+                                </Grid>
                             </Button>
                         </ListViewItem>
                         <ListViewItem Height="90"
@@ -154,7 +160,7 @@
                                         HorizontalAlignment="Left"
                                     Cursor="Hand"
                                     Background="Transparent"
-                                    BorderBrush="Transparent">
+                                    BorderBrush="Transparent" Click="BtnMant_Click">
                                 <Grid Width="250">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="60" />
@@ -219,7 +225,7 @@
                                     <Image Width="35"
                                        Grid.Column="0"
                                        HorizontalAlignment="Center"
-                                      Source="/Assets/car.png" />
+                                      Source="/Assets/alquilar (1).png" />
                                     <TextBlock Grid.Column="1" 
                                                Text="RENTA" 
                                                FontWeight="SemiBold"
@@ -281,8 +287,7 @@
                                                FontWeight="SemiBold"
                                                FontSize="15"
                                                Foreground="White"
-                                               VerticalAlignment="Center"
-                                               >
+                                               VerticalAlignment="Center">
                                     </TextBlock>
                                 </Grid>
                             </Button>
@@ -292,7 +297,7 @@
                         <!--#endregion-->
                     </ListView>
                 </StackPanel>
-                
+             
                 <!---#ENDREGION-->
                 
             </Grid>
@@ -310,6 +315,7 @@
                 <TextBlock Text="InfoTOolsSV" VerticalAlignment="Center" 
                            HorizontalAlignment="Center"
                            FontSize="30" />
+                <ContentControl Content="{Binding}" />
 
             </Grid>
         <!--#endregion-->
