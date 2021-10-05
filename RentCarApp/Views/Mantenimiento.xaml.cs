@@ -45,5 +45,11 @@ namespace RentCarApp.Views
             var a = new TipoCombustible();
             _mainWindow.ChangeContext(a);
         }
+
+        private void BtnTipoV_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new TipoVehiculo();
+            _mainWindow.ChangeContext(a);
+        }
     }
 }
