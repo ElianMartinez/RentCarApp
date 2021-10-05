@@ -46,7 +46,7 @@
                     </Border>
                 </Grid>
             </Button>
-            <Button x:Name="BtnModelos" Cursor="Hand" Grid.Column="3" Grid.Row="2" Background="Transparent" >
+            <Button x:Name="BtnModelos" Cursor="Hand" Grid.Column="3" Grid.Row="2" Background="Transparent" Click="BtnModelos_Click" >
                 <Grid Width="260" Height="160">
                     <Border CornerRadius="10" Background="#005990">
                         <Grid>
@@ -76,7 +76,7 @@
                     </Border>
                 </Grid>
             </Button>
-            <Button x:Name="BtnTipoC" Cursor="Hand" Grid.Column="3" Grid.Row="3" Background="Transparent" >
+            <Button x:Name="BtnTipoC" Cursor="Hand" Grid.Column="3" Grid.Row="3" Background="Transparent" Click="BtnTipoC_Click" >
                 <Grid Width="260" Height="160">
                     <Border CornerRadius="10" Background="#005990">
                         <Grid>

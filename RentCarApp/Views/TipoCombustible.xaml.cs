@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,59 +16,18 @@ using System.Windows.Shapes;
 namespace RentCarApp.Views
 {
     /// <summary>
-    /// Lógica de interacción para Marcas.xaml
+    /// Lógica de interacción para TipoCombustible.xaml
     /// </summary>
-    public partial class Marcas : UserControl
+    public partial class TipoCombustible : UserControl
     {
-
-        private int _ID = 0;
-        private bool _IsEditing = false;
-        public Marcas()
+        bool _IsEditing = false;
+        int _ID = 0;
+        public TipoCombustible()
         {
             InitializeComponent();
+            Cancell();
             Refresh();
         }
-
-        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        private void Refresh()
-        {
-            using (Models.rentcarEntities db = new Models.rentcarEntities())
-            {
-                var data = db.MARCAS.ToList();
-                datagrid.ItemsSource = data;
-                BtnCancelar.Visibility = Visibility.Hidden;
-                BtnBorrar.Visibility = Visibility.Hidden;
-            }
-        }
-        private void datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if(datagrid.SelectedItem != null)
-            {
-                Models.MARCAS da = (Models.MARCAS)datagrid.SelectedItem;
-                txtnombre.Text = da.DESCRIPCION;
-                cbxestado.SelectedValue = da.ESTADO.ToString();
-                _ID = da.ID_MARCA;
-                _IsEditing = true;
-                BtnGuardad.Content = "Modificar";
-                BtnGuardad.Background = new SolidColorBrush(Colors.Orange);
-                BtnCancelar.Visibility = Visibility.Visible;
-                BtnBorrar.Visibility = Visibility.Visible;
-            }
-        }
-
-        private void cbxestado_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-  
-        }
-
-        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            Cancell();
-        }
-
         private void Cancell()
         {
             _ID = 0;
@@ -82,6 +40,22 @@ namespace RentCarApp.Views
             BtnGuardad.Content = "Guardar";
         }
 
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Cancell();
+        }
+
+        private void Refresh()
+        {
+            using (Models.rentcarEntities db = new Models.rentcarEntities())
+            {
+                var data = db.TIPOS_COMBUSTIBLES.ToList();
+                datagrid.ItemsSource = data;
+                BtnCancelar.Visibility = Visibility.Hidden;
+                BtnBorrar.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void BtnGuardad_Click(object sender, RoutedEventArgs e)
         {
             if (_IsEditing)
@@ -90,8 +64,7 @@ namespace RentCarApp.Views
                 {
                     using (var db = new Models.rentcarEntities())
                     {
-
-                        var result = db.MARCAS.First(a => a.ID_MARCA == _ID);
+                        var result = db.TIPOS_COMBUSTIBLES.First(a => a.ID_TIPO_COMBUSTIBLE == _ID);
                         result.ESTADO = cbxestado.SelectedValue.ToString();
                         result.DESCRIPCION = txtnombre.Text;
                         db.SaveChanges();
@@ -107,15 +80,15 @@ namespace RentCarApp.Views
             }
             else
             {
-                if(txtnombre.Text.Length > 0 && cbxestado.SelectedValue != null)
+                if (txtnombre.Text.Length > 0 && cbxestado.SelectedValue != null)
                 {
-                   
+
                     using (var db = new Models.rentcarEntities())
                     {
-                        Models.MARCAS newMarca = new Models.MARCAS();
+                        Models.TIPOS_COMBUSTIBLES newMarca = new Models.TIPOS_COMBUSTIBLES();
                         newMarca.DESCRIPCION = txtnombre.Text;
                         newMarca.ESTADO = cbxestado.SelectedValue.ToString();
-                        db.MARCAS.Add(newMarca);
+                        db.TIPOS_COMBUSTIBLES.Add(newMarca);
                         db.SaveChanges();
                     }
                     Cancell();
@@ -131,6 +104,7 @@ namespace RentCarApp.Views
         private void BtnBorrar_Click(object sender, RoutedEventArgs e)
         {
 
+
             MessageBoxResult result1 = MessageBox.Show("Está seguro de borrar este registro?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result1 == MessageBoxResult.Yes)
             {
@@ -138,8 +112,8 @@ namespace RentCarApp.Views
                 {
                     using (var db = new Models.rentcarEntities())
                     {
-                        var result = db.MARCAS.First(a => a.ID_MARCA == _ID);
-                        db.MARCAS.Remove(result);
+                        var result = db.TIPOS_COMBUSTIBLES.First(a => a.ID_TIPO_COMBUSTIBLE == _ID);
+                        db.TIPOS_COMBUSTIBLES.Remove(result);
                         db.SaveChanges();
                     }
                     Cancell();
@@ -153,7 +127,24 @@ namespace RentCarApp.Views
                     }
                 }
             }
-         
+        }
+
+        private void datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (datagrid.SelectedItem != null)
+            {
+                Models.TIPOS_COMBUSTIBLES da = (Models.TIPOS_COMBUSTIBLES)datagrid.SelectedItem;
+                txtnombre.Text = da.DESCRIPCION;
+                cbxestado.SelectedValue = da.ESTADO.ToString();
+                _ID = da.ID_TIPO_COMBUSTIBLE;
+                _IsEditing = true;
+                BtnGuardad.Content = "Modificar";
+                BtnGuardad.Background = new SolidColorBrush(Colors.Orange);
+                BtnCancelar.Visibility = Visibility.Visible;
+                BtnBorrar.Visibility = Visibility.Visible;
+            }
         }
     }
+
+
 }

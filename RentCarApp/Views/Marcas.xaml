@@ -143,7 +143,7 @@
             <TextBlock Grid.Row="1" Grid.Column="1" Foreground="#005990" HorizontalAlignment="Center" FontSize="35"  FontWeight="Bold" Text="Mantenimiento de Marcas" Grid.ColumnSpan="3"></TextBlock>
             <TextBlock Text="Nombre de la marca:   " VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"></TextBlock>
             <TextBox x:Name="txtnombre" FontSize="20" VerticalAlignment="Center" TextAlignment="Center" BorderBrush="#005990" Grid.Row="2" Grid.Column="1"  Background="Transparent" Height="35" Style="{DynamicResource TextBoxStyle1}"></TextBox>
-            <TextBlock Text="Nombre de la marca:   " VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right"></TextBlock>
+            <TextBlock Text="Estado de la marca:   " VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right"></TextBlock>
             <ComboBox SelectedValuePath="Tag"  x:Name="cbxestado" FontSize="20" VerticalAlignment="Center"  BorderBrush="#005990" Grid.Row="2" Grid.Column="3" Background="Transparent" Height="35" SelectionChanged="cbxestado_SelectionChanged">
                 <ComboBoxItem Tag="A" >Activo</ComboBoxItem>
                 <ComboBoxItem Tag="I" IsSelected="True">Inactivo</ComboBoxItem>
@@ -166,9 +166,9 @@
                       Grid.Row="4" x:Name="datagrid" SelectionChanged="datagrid_SelectionChanged" AutoGenerateColumns="False" Grid.ColumnSpan="3" Margin="0,0,10,10" Grid.RowSpan="2" Grid.Column="1" Style="{DynamicResource DataGridStyle1}" >
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID MARCA" Binding="{Binding ID_MARCA}" Width="*" />
-                    <DataGridTextColumn Header="DESCRIPCION" Binding="{Binding DESCRIPCION}"  Width="*" />
-                    <DataGridTextColumn Header="ESTADO" Binding="{Binding ESTADO}"  Width="*" />
+                    <DataGridTextColumn Header="Id Marca" Binding="{Binding ID_MARCA}" Width="*" />
+                    <DataGridTextColumn Header="Descripción" Binding="{Binding DESCRIPCION}"  Width="*" />
+                    <DataGridTextColumn Header="Estado" Binding="{Binding ESTADO}"  Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

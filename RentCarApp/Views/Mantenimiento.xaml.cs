@@ -32,5 +32,18 @@ namespace RentCarApp.Views
             var a = new Marcas();
             _mainWindow.ChangeContext(a);
         }
+
+        private void BtnModelos_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new Modelos();
+            _mainWindow.ChangeContext(a);
+        }
+
+        private void BtnTipoC_Click(object sender, RoutedEventArgs e)
+        {
+
+            var a = new TipoCombustible();
+            _mainWindow.ChangeContext(a);
+        }
     }
 }
