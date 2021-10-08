@@ -56,7 +56,7 @@
                     </Border>
                 </Grid>
             </Button>
-            <Button x:Name="BtnClientes" Cursor="Hand" Grid.Column="1" Grid.Row="3" Background="Transparent" >
+            <Button x:Name="BtnClientes" Cursor="Hand" Grid.Column="1" Grid.Row="3" Background="Transparent" Click="BtnClientes_Click" >
                 <Grid Width="260" Height="160">
                     <Border CornerRadius="10" Background="#005990">
                         <Grid>
@@ -66,7 +66,7 @@
                     </Border>
                 </Grid>
             </Button>
-            <Button x:Name="BtnEmpleados" Cursor="Hand" Grid.Column="2" Grid.Row="3" Background="Transparent" >
+            <Button x:Name="BtnEmpleados" Cursor="Hand" Grid.Column="2" Grid.Row="3" Background="Transparent" Click="BtnEmpleados_Click" >
                 <Grid Width="260" Height="160">
                     <Border CornerRadius="10" Background="#005990">
                         <Grid>

@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="RentCarApp.Views.Clientes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RentCarApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="745" d:DesignWidth="1149">
+    <Border CornerRadius="10" Background="GhostWhite">
+        <Grid Margin="-10,0,10,0">
+            <TextBlock HorizontalAlignment="Left" Margin="457,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="#FF005990"><Run Text="Mantenimineto de Clientes"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="61,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="Nombre"/><LineBreak/><Run/></TextBlock>
+            <TextBox x:Name="txtnombre" HorizontalAlignment="Left" Height="38" Margin="61,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="356,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="C"/><Run Text="édula"/></TextBlock>
+            <TextBox x:Name="txtcedula" HorizontalAlignment="Left" Height="38" Margin="356,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="656,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="N"/><Run Text="o"/><Run Text=" Tarjeta de Cr"/><Run Text="édito."/></TextBlock>
+            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="928,105,0,0" VerticalAlignment="Top" Width="146" Height="39" Background="#FF4ED128" Foreground="White" FontWeight="Bold" Click="Button_Click" Cursor="Hand" FontSize="16" ClipToBounds="True"/>
+            <TextBlock HorizontalAlignment="Left" Margin="61,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Límite de Crédito"/>
+            <TextBox x:Name="txtLimiteC" HorizontalAlignment="Left" Height="38" Margin="61,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="252,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Tipo de Persona"/>
+            <ComboBox SelectedValuePath="Tag" x:Name="cbxestado" HorizontalAlignment="Left" Margin="463,181,0,0" VerticalAlignment="Top" Width="177" Height="38" FontSize="18" FontWeight="Bold">
+                <ComboBoxItem Tag="A" IsSelected="True" Content="Activo"/>
+                <ComboBoxItem Tag="I" Content="Inactivo" />
+            </ComboBox>
+            <TextBlock HorizontalAlignment="Left" Margin="463,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Estado"/>
+            <DataGrid x:Name="datagrid" FontSize="20" 
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserReorderColumns="False"
+                CanUserResizeColumns="False"
+                HeadersVisibility="Column"
+                GridLinesVisibility="Horizontal"
+                IsReadOnly="True"
+                AutoGenerateColumns="False"
+                HorizontalGridLinesBrush="#005990" HorizontalAlignment="Left" Height="440" Margin="61,264,0,0" VerticalAlignment="Top" Width="1013" RenderTransformOrigin="-0.33,0.16" MouseDoubleClick="datagrid_MouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding ID_CLIENTE}" Width="*" />
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRE}"  Width="*" />
+                    <DataGridTextColumn Header="Cédula" Binding="{Binding CEDULA}"  Width="*" />
+                    <DataGridTextColumn Header="Estado" Binding="{Binding ESTADO}"  Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="712,178,0,0" VerticalAlignment="Top" Width="160" Height="42" Background="#FFD13D26" Foreground="White" FontWeight="Bold" Click="btnborrar_click" Cursor="Hand" FontSize="16"/>
+            <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="928,181,0,0" VerticalAlignment="Top" Width="146" Height="39" Background="#FFD17D28" Foreground="White" FontWeight="Bold" Click="btnCancelar_Click" Cursor="Hand" FontSize="16"/>
+            <TextBox x:Name="txtNoTarjeta" HorizontalAlignment="Left" Height="38" Margin="656,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" FontSize="18"/>
+            <ComboBox SelectedValuePath="Tag" x:Name="cbxTipoPersona" HorizontalAlignment="Left" Margin="252,179,0,0" VerticalAlignment="Top" Width="178" Height="38" FontSize="18" FontWeight="Bold">
+                <ComboBoxItem Tag="Jurídica" IsSelected="True" Content="Jurídica"/>
+                <ComboBoxItem Tag="Normal" Content="Normal" />
+            </ComboBox>
+
+
+        </Grid>
+
+    </Border>
+</UserControl>

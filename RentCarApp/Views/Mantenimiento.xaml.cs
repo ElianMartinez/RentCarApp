@@ -51,5 +51,17 @@ namespace RentCarApp.Views
             var a = new TipoVehiculo();
             _mainWindow.ChangeContext(a);
         }
+
+        private void BtnEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new Empleado();
+            _mainWindow.ChangeContext(a);
+        }
+
+        private void BtnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new Clientes();
+            _mainWindow.ChangeContext(a);
+        }
     }
 }
