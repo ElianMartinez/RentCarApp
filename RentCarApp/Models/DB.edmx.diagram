@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="rentcarModel.INSPECCIONES" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcarModel.MARCAS" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcarModel.MODELOS" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="rentcarModel.RENTA" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="rentcarModel.RENTA" Width="1.5" PointX="10.375" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcarModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcarModel.TIPOS_COMBUSTIBLES" Width="1.75" PointX="3" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="rentcarModel.TIPOS_VEHICULOS" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />

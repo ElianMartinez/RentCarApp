@@ -143,7 +143,7 @@ namespace RentCarApp.Views
                         result.ESTADO = cbxestado.SelectedValue.ToString();
                         result.ID_TIPO_COMNUSTIBLE = (int)cbxtipocomb.SelectedValue;
                         result.ID_TIPO_VEHICULO = (int)cbxtipoVehi.SelectedValue;
-                        result.
+                        
                         db.SaveChanges();
                     }
                     Cancell();
@@ -163,7 +163,7 @@ namespace RentCarApp.Views
                     txtchasis.Text.Length > 0 &&
                     cbxmarca.SelectedValue != null &&
                     cbxModelos.SelectedValue != null &&
-                    cbxtipoVehi.SelectedValue != null
+                    cbxtipoVehi.SelectedValue != null &&
                     cbxtipocomb.SelectedValue != null
                     )
                 {
