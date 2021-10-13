@@ -69,10 +69,8 @@ namespace RentCarApp.Views
                     cbxtandal.SelectedValue != null
                     && dpkFecha.SelectedDate != null)
                 {
-
                     using (var db = new Models.rentcarEntities())
                     {
-                      
                         try
                         {
                             Models.EMPLEADO newMarca = new Models.EMPLEADO();

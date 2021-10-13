@@ -23,9 +23,9 @@ namespace RentCarApp.Models
     
         public int ID_VEHICULO { get; set; }
         public string DESCRIPCION { get; set; }
-        public int NO_CHASIS { get; set; }
-        public int NO_MOTOR { get; set; }
-        public int NO_PLACA { get; set; }
+        public string NO_CHASIS { get; set; }
+        public string NO_MOTOR { get; set; }
+        public string NO_PLACA { get; set; }
         public int ID_TIPO_VEHICULO { get; set; }
         public int ID_MARCA { get; set; }
         public int ID_MODELO { get; set; }

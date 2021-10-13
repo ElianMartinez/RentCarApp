@@ -24,7 +24,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Foreground="#005990" Text="Seleccione un Matenimiento." Grid.Column="1" Grid.Row="1" FontSize="35" Margin="263,0,203,0" FontWeight="Bold" Grid.ColumnSpan="3"></TextBlock>
-            <Button x:Name="BtnAutos" Cursor="Hand" Grid.Column="1" Grid.Row="2" Background="Transparent" >
+            <Button x:Name="BtnAutos" Cursor="Hand" Grid.Column="1" Grid.Row="2" Background="Transparent" Click="BtnAutos_Click" >
                 <Grid Width="260" Height="160">
                     <Border CornerRadius="10" Background="#005990" >
                         <Grid>

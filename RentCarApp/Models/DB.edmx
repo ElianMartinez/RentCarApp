@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="rentcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="rentcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CLIENTES">
           <Key>
             <PropertyRef Name="ID_CLIENTE" />
@@ -15,7 +15,7 @@
           <Property Name="NO_TARJETA_CR" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LIMITE_CREDITO" Type="money" Nullable="false" />
           <Property Name="TIPO_PERSONA" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ESTADO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
@@ -27,7 +27,7 @@
           <Property Name="TANDA_LABORAR" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PORCIENTO_COMISION" Type="float" Nullable="false" />
           <Property Name="FECHA_INGRESO" Type="date" Nullable="false" />
-          <Property Name="ESTADO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="INSPECCIONES">
           <Key>
@@ -47,7 +47,7 @@
           <Property Name="E_G4" Type="bit" Nullable="false" />
           <Property Name="FECHA" Type="date" Nullable="false" />
           <Property Name="ID_EMPLEADO" Type="int" Nullable="false" />
-          <Property Name="ESTADO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="MARCAS">
           <Key>
@@ -55,7 +55,7 @@
           </Key>
           <Property Name="ID_MARCA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="ESTADO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="MODELOS">
           <Key>
@@ -64,7 +64,7 @@
           <Property Name="ID_MODELO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_MARCA" Type="int" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="ESTADO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="RENTA">
           <Key>
@@ -79,7 +79,7 @@
           <Property Name="MONTO_DIA" Type="money" Nullable="false" />
           <Property Name="CANTIDAD_DIAS" Type="int" Nullable="false" />
           <Property Name="COMENTARIO" Type="text" Nullable="false" />
-          <Property Name="ESTADO" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -113,9 +113,9 @@
           </Key>
           <Property Name="ID_VEHICULO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="NO_CHASIS" Type="int" Nullable="false" />
-          <Property Name="NO_MOTOR" Type="int" Nullable="false" />
-          <Property Name="NO_PLACA" Type="int" Nullable="false" />
+          <Property Name="NO_CHASIS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NO_MOTOR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NO_PLACA" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_TIPO_VEHICULO" Type="int" Nullable="false" />
           <Property Name="ID_MARCA" Type="int" Nullable="false" />
           <Property Name="ID_MODELO" Type="int" Nullable="false" />
@@ -310,8 +310,7 @@
             <End Role="VEHICULOS" EntitySet="VEHICULOS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="rentcarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -325,7 +324,7 @@
           <Property Name="NO_TARJETA_CR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LIMITE_CREDITO" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="TIPO_PERSONA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="INSPECCIONES" Relationship="Self.FK_INSPECCIONES_CLIENTES" FromRole="CLIENTES" ToRole="INSPECCIONES" />
           <NavigationProperty Name="RENTA" Relationship="Self.FK_RENTA_CLIENTES" FromRole="CLIENTES" ToRole="RENTA" />
         </EntityType>
@@ -339,7 +338,7 @@
           <Property Name="TANDA_LABORAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PORCIENTO_COMISION" Type="Double" Nullable="false" />
           <Property Name="FECHA_INGRESO" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="INSPECCIONES" Relationship="Self.FK_INSPECCIONES_EMPLEADO" FromRole="EMPLEADO" ToRole="INSPECCIONES" />
           <NavigationProperty Name="RENTA" Relationship="Self.FK_RENTA_EMPLEADO" FromRole="EMPLEADO" ToRole="RENTA" />
         </EntityType>
@@ -361,7 +360,7 @@
           <Property Name="E_G4" Type="Boolean" Nullable="false" />
           <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ID_EMPLEADO" Type="Int32" Nullable="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTES" Relationship="Self.FK_INSPECCIONES_CLIENTES" FromRole="INSPECCIONES" ToRole="CLIENTES" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_INSPECCIONES_EMPLEADO" FromRole="INSPECCIONES" ToRole="EMPLEADO" />
           <NavigationProperty Name="VEHICULOS" Relationship="Self.FK_INSPECCIONES_VEHICULOS" FromRole="INSPECCIONES" ToRole="VEHICULOS" />
@@ -372,7 +371,7 @@
           </Key>
           <Property Name="ID_MARCA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="MODELOS" Relationship="Self.FK_MODELOS_MARCAS" FromRole="MARCAS" ToRole="MODELOS" />
           <NavigationProperty Name="VEHICULOS" Relationship="Self.FK_VEHICULOS_MARCAS" FromRole="MARCAS" ToRole="VEHICULOS" />
         </EntityType>
@@ -383,7 +382,7 @@
           <Property Name="ID_MODELO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_MARCA" Type="Int32" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="MARCAS" Relationship="Self.FK_MODELOS_MARCAS" FromRole="MODELOS" ToRole="MARCAS" />
           <NavigationProperty Name="VEHICULOS" Relationship="Self.FK_VEHICULOS_MODELOS" FromRole="MODELOS" ToRole="VEHICULOS" />
         </EntityType>
@@ -400,7 +399,7 @@
           <Property Name="MONTO_DIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="CANTIDAD_DIAS" Type="Int32" Nullable="false" />
           <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTES" Relationship="Self.FK_RENTA_CLIENTES" FromRole="RENTA" ToRole="CLIENTES" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_RENTA_EMPLEADO" FromRole="RENTA" ToRole="EMPLEADO" />
           <NavigationProperty Name="VEHICULOS" Relationship="Self.FK_RENTA_VEHICULOS" FromRole="RENTA" ToRole="VEHICULOS" />
@@ -439,9 +438,9 @@
           </Key>
           <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NO_CHASIS" Type="Int32" Nullable="false" />
-          <Property Name="NO_MOTOR" Type="Int32" Nullable="false" />
-          <Property Name="NO_PLACA" Type="Int32" Nullable="false" />
+          <Property Name="NO_CHASIS" Type="String" Nullable="false" />
+          <Property Name="NO_MOTOR" Type="String" Nullable="false" />
+          <Property Name="NO_PLACA" Type="String" Nullable="false" />
           <Property Name="ID_TIPO_VEHICULO" Type="Int32" Nullable="false" />
           <Property Name="ID_MARCA" Type="Int32" Nullable="false" />
           <Property Name="ID_MODELO" Type="Int32" Nullable="false" />

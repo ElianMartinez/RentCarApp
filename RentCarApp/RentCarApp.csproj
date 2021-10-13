@@ -139,6 +139,9 @@
     <Compile Include="Views\TipoVehiculo.xaml.cs">
       <DependentUpon>TipoVehiculo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Vehiculo.xaml.cs">
+      <DependentUpon>Vehiculo.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TipoVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Vehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
