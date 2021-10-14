@@ -24,32 +24,35 @@
                     </TransformGroup>
                 </TextBox.RenderTransform>
             </TextBox>
-            <TextBlock HorizontalAlignment="Left" Margin="366,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="No Chasis"/>
+            <TextBlock HorizontalAlignment="Left" Margin="122,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="21"><Run Text="Buscar"/><LineBreak/><Run/></TextBlock>
             <TextBox x:Name="txtchasis" HorizontalAlignment="Left" Height="28" Margin="366,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
             <ComboBox x:Name="cbxtipoVehi" HorizontalAlignment="Left" Margin="61,170,0,0" VerticalAlignment="Top" Width="135" Height="25" FontWeight="Bold" SelectedIndex="0"/>
             <TextBlock HorizontalAlignment="Left" Margin="61,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Tipo Vehículo"/>
             <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="928,35,0,0" VerticalAlignment="Top" Width="195" Height="39" Background="#FF4ED128" Foreground="White" FontWeight="Bold" Cursor="Hand" FontSize="16" ClipToBounds="True" Grid.ColumnSpan="2" Click="btnGuardar_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="564,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="No Motor"/>
             <TextBox x:Name="txtnoMotor" HorizontalAlignment="Left" Height="28" Margin="564,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TextChanged="txtcomision_TextChanged"/>
-            <ComboBox SelectedValuePath="Tag" x:Name="cbxestado" HorizontalAlignment="Left" Margin="748,169,0,0" VerticalAlignment="Top" Width="163" Height="25" FontWeight="Bold">
+            <ComboBox SelectedValuePath="Tag" x:Name="cbxestado" HorizontalAlignment="Left" Margin="748,166,0,0" VerticalAlignment="Top" Width="163" Height="25" FontWeight="Bold">
                 <ComboBoxItem Tag="A" IsSelected="True" Content="Activo"/>
                 <ComboBoxItem Tag="I" Content="Inactivo" />
+                <ComboBoxItem Tag="R" Content="Rentado"/>
             </ComboBox>
             <TextBlock HorizontalAlignment="Left" Margin="748,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Estado"/>
-            <DataGrid x:Name="datagrid" FontSize="20" 
+            <DataGrid x:Name="datagrid" FontSize="16" 
                 CanUserAddRows="False"
                 CanUserDeleteRows="False"
                 CanUserReorderColumns="False"
-                CanUserResizeColumns="False"
+                CanUserResizeColumns="True"
                 HeadersVisibility="Column"
                 GridLinesVisibility="Horizontal"
                 IsReadOnly="True"
                 AutoGenerateColumns="False"
-                HorizontalGridLinesBrush="#005990" HorizontalAlignment="Left" Height="474" Margin="61,230,0,0" VerticalAlignment="Top" Width="1013" RenderTransformOrigin="-0.33,0.16" Grid.ColumnSpan="2" >
+                HorizontalGridLinesBrush="#005990" HorizontalAlignment="Left" Height="424" Margin="61,280,0,0" VerticalAlignment="Top" Width="1013" RenderTransformOrigin="-0.33,0.16" Grid.ColumnSpan="2" MouseDoubleClick="datagrid_MouseDoubleClick" FontWeight="SemiBold" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding ID_VEHICULO}" Width="*" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding DESCRIPCION}"  Width="*" />
-                    <DataGridTextColumn Header="Marca" Binding="{Binding MARCA.DESCRIPCION}"  Width="*" />
+                    <DataGridTextColumn Header="Marca" Binding="{Binding MARCAS.DESCRIPCION}"  Width="*" />
+                    <DataGridTextColumn Header="Combustible" Binding="{Binding TIPOS_COMBUSTIBLES.DESCRIPCION}"  Width="*" />
+                    <DataGridTextColumn Header="Tipo Vehículo" Binding="{Binding TIPOS_VEHICULOS.DESCRIPCION}"  Width="*" />
                     <DataGridTextColumn Header="Estado" Binding="{Binding ESTADO}"  Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
@@ -60,14 +63,12 @@
             <TextBlock HorizontalAlignment="Left" Margin="217,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Marca"/>
             <ComboBox x:Name="cbxModelos" HorizontalAlignment="Left" Margin="366,168,0,0" VerticalAlignment="Top" Width="179" Height="25" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
             </ComboBox>
-            <TextBlock HorizontalAlignment="Left" Margin="366,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="Modelos"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="366,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="19"><Run Text="Modelos"/><LineBreak/><Run/></TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="749,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="Matricula"/>
             <TextBox x:Name="txtmatricula" HorizontalAlignment="Left" Height="28" Margin="748,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" TextChanged="txtcomision_TextChanged"/>
-            <ComboBox SelectedValuePath="Tag" x:Name="cbxtipocomb" HorizontalAlignment="Left" Margin="566,166,0,0" VerticalAlignment="Top" Width="163" Height="25" FontWeight="Bold">
-                <ComboBoxItem Tag="A" IsSelected="True" Content="Activo"/>
-                <ComboBoxItem Tag="I" Content="Inactivo" />
+            <ComboBox  x:Name="cbxtipocomb" HorizontalAlignment="Left" Margin="566,166,0,0" VerticalAlignment="Top" Width="163" Height="25" FontWeight="Bold">
             </ComboBox>
-            <TextBlock HorizontalAlignment="Left" Margin="566,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5">
+            <TextBlock HorizontalAlignment="Left" Margin="566,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.5,0.5" Height="24">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -76,6 +77,8 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </TextBlock.RenderTransform><Run Text="Tipo Combustible"/><LineBreak/><Run/></TextBlock>
+            <TextBox x:Name="txtchasis_Copy" HorizontalAlignment="Left" Height="28" Margin="183,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" TextChanged="Txtchasis_Copy_TextChanged"/>
+            <Button x:Name="btnCancelar_Copy" Content="Buscar" HorizontalAlignment="Left" Margin="381,231,0,0" VerticalAlignment="Top" Width="195" Height="39" Background="#FFD17D28" Foreground="White" FontWeight="Bold"  Cursor="Hand" FontSize="16" Click="btnCancelar_Copy_Click"/>
 
 
         </Grid>

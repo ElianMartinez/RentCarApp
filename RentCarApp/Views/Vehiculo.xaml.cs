@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace RentCarApp.Views
         {
             InitializeComponent();
             Refresh();
+            Cancell();
         }
 
         private void txtcomision_TextChanged(object sender, TextChangedEventArgs e)
@@ -34,23 +36,29 @@ namespace RentCarApp.Views
 
         }
 
-        private void Refresh()
+        private async Task Refresh()
         {
             using (var db = new Models.rentcarEntities())
             {
-                var rows = db.VEHICULOS.ToList();
+                var rows = await db.VEHICULOS.ToListAsync();
                 datagrid.ItemsSource = rows; 
 
                 var marcas = db.MARCAS.Where(o => o.ESTADO == "A").ToList();
                 cbxmarca.ItemsSource = marcas;
                 cbxmarca.SelectedValuePath = "ID_MARCA";
                 cbxmarca.DisplayMemberPath = "DESCRIPCION";
-
                 var tipoVehiculos = db.TIPOS_VEHICULOS.Where(o => o.ESTADO == "A").ToList();
                 cbxtipoVehi.ItemsSource = tipoVehiculos;
                 cbxtipoVehi.SelectedValuePath = "ID_TIPO_VEHICULO";
                 cbxtipoVehi.DisplayMemberPath = "DESCRIPCION";
                 cbxtipoVehi.SelectedIndex = 0;
+
+                cbxtipocomb.ItemsSource = null;
+                var tipoCom = db.TIPOS_COMBUSTIBLES.Where(o => o.ESTADO == "A").ToList();
+                cbxtipocomb.ItemsSource = tipoCom;
+                cbxtipocomb.SelectedValuePath = "ID_TIPO_COMBUSTIBLE";
+                cbxtipocomb.DisplayMemberPath = "DESCRIPCION";
+                cbxtipocomb.SelectedIndex = 0;
 
             }
         }
@@ -66,7 +74,6 @@ namespace RentCarApp.Views
             txtnoMotor.Text = "";
             txtchasis.Text = "";
             cbxtipoVehi.SelectedValue = null;
-            cbxmarca.SelectedValue = null;
             txtmatricula.Text = "";
             cbxModelos.SelectedValue = null;
             btnGuardar.Background = new SolidColorBrush(Colors.Green);
@@ -76,16 +83,18 @@ namespace RentCarApp.Views
 
         private void cbxmarca_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            using (var db = new Models.rentcarEntities())
+            if(cbxmarca.SelectedValue != null)
             {
-
-                var modelos = db.MODELOS.Where(item => item.ID_MARCA == (int)cbxmarca.SelectedValue && item.ESTADO == "A").ToList();
-                cbxModelos.ItemsSource = modelos;
-                cbxModelos.SelectedValuePath = "ID_MODELO";
-                cbxModelos.DisplayMemberPath = "DESCRIPCION";
-                cbxModelos.SelectedIndex = 0;
-
+                using (var db = new Models.rentcarEntities())
+                {
+                    var modelos = db.MODELOS.Where(item => item.ID_MARCA == (int)cbxmarca.SelectedValue && item.ESTADO == "A").ToList();
+                    cbxModelos.ItemsSource = modelos;
+                    cbxModelos.SelectedValuePath = "ID_MODELO";
+                    cbxModelos.DisplayMemberPath = "DESCRIPCION";
+                    cbxModelos.SelectedIndex = 0;
+                }
             }
+           
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -93,7 +102,7 @@ namespace RentCarApp.Views
             Cancell();
         }
 
-        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        private async void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result1 = MessageBox.Show("Está seguro de borrar este registro?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result1 == MessageBoxResult.Yes)
@@ -102,12 +111,12 @@ namespace RentCarApp.Views
                 {
                     using (var db = new Models.rentcarEntities())
                     {
-                        var result = db.TIPOS_VEHICULOS.First(a => a.ID_TIPO_VEHICULO == _ID);
-                        db.TIPOS_VEHICULOS.Remove(result);
+                        var result = db.VEHICULOS.First(a => a.ID_VEHICULO == _ID);
+                        db.VEHICULOS.Remove(result);
                         db.SaveChanges();
                     }
                     Cancell();
-                    Refresh();
+                   await Refresh();
                 }
                 catch (Exception err)
                 {
@@ -119,7 +128,7 @@ namespace RentCarApp.Views
             }
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (_IsEditing)
             {
@@ -136,18 +145,21 @@ namespace RentCarApp.Views
                 {
                     using (var db = new Models.rentcarEntities())
                     {
-                        var result = db.VEHICULOS.First(a => a.ID_TIPO_VEHICULO == _ID);
-                        result.DESCRIPCION = txtDescripcion.Text;
-                        result.ID_MARCA = (int)cbxmarca.SelectedValue;
-                        result.ID_MODELO = (int)cbxModelos.SelectedValue;
-                        result.ESTADO = cbxestado.SelectedValue.ToString();
-                        result.ID_TIPO_COMNUSTIBLE = (int)cbxtipocomb.SelectedValue;
-                        result.ID_TIPO_VEHICULO = (int)cbxtipoVehi.SelectedValue;
+                        var newMarca = db.VEHICULOS.First(a => a.ID_VEHICULO == _ID);
+                        newMarca.ESTADO = cbxestado.SelectedValue.ToString();
+                        newMarca.DESCRIPCION = txtDescripcion.Text;
+                        newMarca.ID_MARCA = (int)cbxmarca.SelectedValue;
+                        newMarca.ID_MODELO = (int)cbxModelos.SelectedValue;
+                        newMarca.ID_TIPO_COMNUSTIBLE = (int)cbxtipocomb.SelectedValue;
+                        newMarca.ID_TIPO_VEHICULO = (int)cbxtipoVehi.SelectedValue;
+                        newMarca.NO_CHASIS = txtchasis.Text;
+                        newMarca.NO_MOTOR = txtnoMotor.Text;
+                        newMarca.NO_PLACA = txtmatricula.Text;
                         
                         db.SaveChanges();
                     }
                     Cancell();
-                    Refresh();
+                   await Refresh();
                 }
                 else
                 {
@@ -171,14 +183,17 @@ namespace RentCarApp.Views
                     {
                         try
                         {
-                            Models.EMPLEADO newMarca = new Models.EMPLEADO();
-                            //newMarca.NOMBRE = txtnombre.Text;/
-                            //newMarca.PORCIENTO_COMISION = double.Parse(txtcomision.Text);
-                            //newMarca.TANDA_LABORAR = cbxtandal.Text;
-                            ////newMarca.CEDULA = txtcedula.Text;
-                            //newMarca.FECHA_INGRESO = (DateTime)dpkFecha.SelectedDate;
+                            Models.VEHICULOS newMarca = new Models.VEHICULOS();
                             newMarca.ESTADO = cbxestado.SelectedValue.ToString();
-                            db.EMPLEADO.Add(newMarca);
+                            newMarca.DESCRIPCION = txtDescripcion.Text;
+                            newMarca.ID_MARCA = (int)cbxmarca.SelectedValue;
+                            newMarca.ID_MODELO = (int)cbxModelos.SelectedValue;
+                            newMarca.ID_TIPO_COMNUSTIBLE = (int)cbxtipocomb.SelectedValue;
+                            newMarca.ID_TIPO_VEHICULO = (int)cbxtipoVehi.SelectedValue;
+                            newMarca.NO_CHASIS = txtchasis.Text;
+                            newMarca.NO_MOTOR = txtnoMotor.Text;
+                            newMarca.NO_PLACA = txtmatricula.Text;
+                            db.VEHICULOS.Add(newMarca);
                             db.SaveChanges();
                         }
                         catch (DbEntityValidationException err)
@@ -191,11 +206,10 @@ namespace RentCarApp.Views
                                     MessageBox.Show("- Property: " + ve.PropertyName + " , Error: " + ve.ErrorMessage);
                                 }
                             }
-
                         }
                     }
                     Cancell();
-                    Refresh();
+                   await Refresh();
                 }
                 else
                 {
@@ -203,6 +217,62 @@ namespace RentCarApp.Views
                 }
             }
         }
+
+        private void datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (datagrid.SelectedItem != null)
+            {
+                Models.VEHICULOS da = (Models.VEHICULOS)datagrid.SelectedItem;
+
+                txtDescripcion.Text = da.DESCRIPCION;
+                txtmatricula.Text = da.NO_PLACA;
+                txtnoMotor.Text = da.NO_MOTOR;
+                txtchasis.Text = da.NO_CHASIS;
+                cbxmarca.SelectedValue = da.ID_MARCA;
+                cbxModelos.SelectedValue = da.ID_MODELO;
+                cbxtipocomb.SelectedValue = da.ID_TIPO_COMNUSTIBLE;
+                cbxtipoVehi.SelectedValue = da.ID_TIPO_VEHICULO;
+                cbxestado.SelectedValue = da.ESTADO;
+                _ID = da.ID_VEHICULO;
+                _IsEditing = true;
+                btnGuardar.Content = "Modificar";
+                btnGuardar.Background = new SolidColorBrush(Colors.Orange);
+                btnCancelar.Visibility = Visibility.Visible;
+                btnBorrar.Visibility = Visibility.Visible;
+            }
+        }
+
+        private  void Txtchasis_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+        }
+
+        private async void btnCancelar_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+           
+            string valor = txtchasis_Copy.Text;
+            List<Models.VEHICULOS> fields = null;
+            if (valor != String.Empty)
+            {
+                using (var db = new Models.rentcarEntities())
+                {
+                    fields = await db.VEHICULOS.Where(o => o.DESCRIPCION.Contains(valor)
+                   || o.MARCAS.DESCRIPCION.Contains(valor)
+                   || o.MODELOS.DESCRIPCION.Contains(valor)
+                    || o.TIPOS_COMBUSTIBLES.DESCRIPCION.Contains(valor)
+                    || o.TIPOS_VEHICULOS.DESCRIPCION.Contains(valor)).ToListAsync();
+                    datagrid.ItemsSource = null;
+                    datagrid.ItemsSource = fields;
+                }
+            }
+            else
+            {
+                await Refresh();
+            }
+        }
+
+      
     }
 
 }
