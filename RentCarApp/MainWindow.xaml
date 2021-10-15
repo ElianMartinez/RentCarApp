@@ -188,7 +188,7 @@
                                         HorizontalAlignment="Left"
                                     Cursor="Hand"
                                     Background="Transparent"
-                                    BorderBrush="Transparent">
+                                    BorderBrush="Transparent" Click="BtnInsp_Click">
                                 <Grid Width="250">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="60" />

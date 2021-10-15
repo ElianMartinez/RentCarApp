@@ -75,5 +75,11 @@ namespace RentCarApp
             var a = new Mantenimiento(this);
             ChangeContext(a);
         }
+
+        private void BtnInsp_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new Inspecciones(this);
+            ChangeContext(a);
+        }
     }
 }

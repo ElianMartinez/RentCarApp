@@ -40,8 +40,32 @@ namespace RentCarApp.Views
         {
             using (var db = new Models.rentcarEntities())
             {
-                var rows = await db.VEHICULOS.ToListAsync();
-                datagrid.ItemsSource = rows; 
+                var qs = await (from c in db.VEHICULOS
+                                join m in db.MARCAS on c.ID_MARCA equals m.ID_MARCA
+                                join mo in db.MODELOS on c.ID_MODELO equals mo.ID_MODELO
+                                join ticom in db.TIPOS_COMBUSTIBLES on c.ID_TIPO_COMNUSTIBLE equals ticom.ID_TIPO_COMBUSTIBLE
+                                join tipovehi in db.TIPOS_VEHICULOS on c.ID_TIPO_VEHICULO equals tipovehi.ID_TIPO_VEHICULO
+                                select new VEHICULOSDOT()
+                                {
+                                    DESCRIPCION = c.DESCRIPCION,
+                                    ESTADO = c.ESTADO,
+                                    MARCAS = m,
+                                    ID_MODELO = c.ID_MODELO,
+                                    MODELOS = mo,
+                                    ID_TIPO_COMNUSTIBLE = c.ID_TIPO_COMNUSTIBLE,
+                                    TIPOS_COMBUSTIBLES = ticom,
+                                    ID_TIPO_VEHICULO = c.ID_TIPO_VEHICULO,
+                                    TIPOS_VEHICULOS = tipovehi,
+                                    ID_MARCA = c.ID_MARCA,
+                                    NO_CHASIS = c.NO_CHASIS,
+                                    NO_MOTOR = c.NO_MOTOR,
+                                    NO_PLACA = c.NO_PLACA,
+                                    ID_VEHICULO = c.ID_VEHICULO,
+
+                                }
+                              ).ToListAsync();
+
+                datagrid.ItemsSource = qs;
 
                 var marcas = db.MARCAS.Where(o => o.ESTADO == "A").ToList();
                 cbxmarca.ItemsSource = marcas;
@@ -242,28 +266,43 @@ namespace RentCarApp.Views
             }
         }
 
-        private  void Txtchasis_Copy_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-        }
 
-        private async void btnCancelar_Copy_Click(object sender, RoutedEventArgs e)
+        private async void Txtchasis_Copy_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-           
             string valor = txtchasis_Copy.Text;
-            List<Models.VEHICULOS> fields = null;
+            
             if (valor != String.Empty)
             {
                 using (var db = new Models.rentcarEntities())
                 {
-                    fields = await db.VEHICULOS.Where(o => o.DESCRIPCION.Contains(valor)
-                   || o.MARCAS.DESCRIPCION.Contains(valor)
-                   || o.MODELOS.DESCRIPCION.Contains(valor)
-                    || o.TIPOS_COMBUSTIBLES.DESCRIPCION.Contains(valor)
-                    || o.TIPOS_VEHICULOS.DESCRIPCION.Contains(valor)).ToListAsync();
-                    datagrid.ItemsSource = null;
-                    datagrid.ItemsSource = fields;
+                    var qs = await (from c in db.VEHICULOS
+                              join m in db.MARCAS on c.ID_MARCA equals m.ID_MARCA
+                              join mo in db.MODELOS on c.ID_MODELO equals mo.ID_MODELO
+                              join ticom in db.TIPOS_COMBUSTIBLES on c.ID_TIPO_COMNUSTIBLE equals ticom.ID_TIPO_COMBUSTIBLE
+                              join tipovehi in db.TIPOS_VEHICULOS on c.ID_TIPO_VEHICULO equals tipovehi.ID_TIPO_VEHICULO
+                              where c.DESCRIPCION.Contains(valor) || m.DESCRIPCION.Contains(valor) || mo.DESCRIPCION.Contains(valor) || c.ESTADO.Contains(valor) ||
+                              tipovehi.DESCRIPCION.Contains(valor)
+                              select new VEHICULOSDOT()
+                              {
+                                  DESCRIPCION = c.DESCRIPCION,
+                                  ESTADO = c.ESTADO,
+                                  MARCAS = m,
+                                  ID_MODELO = c.ID_MODELO,
+                                  MODELOS = mo,
+                                  ID_TIPO_COMNUSTIBLE = c.ID_TIPO_COMNUSTIBLE,
+                                  TIPOS_COMBUSTIBLES = ticom,
+                                  ID_TIPO_VEHICULO = c.ID_TIPO_VEHICULO,
+                                  TIPOS_VEHICULOS = tipovehi,
+                                  ID_MARCA = c.ID_MARCA,
+                                  NO_CHASIS = c.NO_CHASIS,
+                                  NO_MOTOR = c.NO_MOTOR,
+                                  NO_PLACA = c.NO_PLACA,
+                                  ID_VEHICULO = c.ID_VEHICULO,
+                              
+                              }
+                              ).ToListAsync();
+
+                    datagrid.ItemsSource = qs;
                 }
             }
             else
@@ -272,7 +311,11 @@ namespace RentCarApp.Views
             }
         }
 
+       
+
       
     }
+    public class VEHICULOSDOT : Models.VEHICULOS { }
+
 
 }

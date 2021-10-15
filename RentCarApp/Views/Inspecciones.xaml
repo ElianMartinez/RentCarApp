@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="RentCarApp.Views.Inspecciones"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RentCarApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="745" d:DesignWidth="1149" Background="Transparent">
+    <Border CornerRadius="10" Background="GhostWhite">
+        <Grid>
+            <TextBlock TextWrapping="Wrap" Text="Mantenimiento de Inspecciones" Margin="294,10,259,661" FontWeight="Bold" FontSize="36"/>
+            <DataGrid x:Name="datagrid" FontSize="20" 
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="True"
+                      HorizontalGridLinesBrush="#005990" HorizontalAlignment="Left" Height="534" Margin="35,176,0,0" VerticalAlignment="Top" Width="1075" RenderTransformOrigin="-0.33,0.16">
+                <!--<DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding ID_EMPLEADO}" Width="*" />
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRE}"  Width="*" />
+                    <DataGridTextColumn Header="Cédula" Binding="{Binding CEDULA}"  Width="*" />
+                    <DataGridTextColumn Header="Estado" Binding="{Binding ESTADO}"  Width="*" />
+                </DataGrid.Columns>-->
+            </DataGrid>
+            <Button Content="Nuevo" HorizontalAlignment="Left" Margin="35,121,0,0" VerticalAlignment="Top" Width="197" Height="39" Background="#FF44B82A" BorderBrush="#FF239112" Foreground="White" FontWeight="Bold" FontSize="18" Click="Button_Click">
+                <Button.Effect>
+                    <BlurEffect Radius="0"/>
+                </Button.Effect>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

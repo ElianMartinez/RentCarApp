@@ -120,11 +120,17 @@
     <Compile Include="Views\Clientes.xaml.cs">
       <DependentUpon>Clientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditarInspecciones.xaml.cs">
+      <DependentUpon>EditarInspecciones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Empleado.xaml.cs">
       <DependentUpon>Empleado.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inspecciones.xaml.cs">
+      <DependentUpon>Inspecciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Mantenimiento.xaml.cs">
       <DependentUpon>Mantenimiento.xaml</DependentUpon>
@@ -160,11 +166,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EditarInspecciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Empleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inspecciones.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
