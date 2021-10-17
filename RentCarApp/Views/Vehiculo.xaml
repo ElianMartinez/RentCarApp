@@ -80,6 +80,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform><Run Text="Tipo Combustible"/><LineBreak/><Run/></TextBlock>
             <TextBox x:Name="txtchasis_Copy" HorizontalAlignment="Left" Height="28" Margin="183,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" TextChanged="Txtchasis_Copy_TextChanged"/>
+            <TextBlock HorizontalAlignment="Left" Margin="366,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Text="No Chasis"/>
 
 
         </Grid>

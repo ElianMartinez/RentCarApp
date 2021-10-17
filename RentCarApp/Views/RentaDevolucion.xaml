@@ -9,14 +9,21 @@
     <Border CornerRadius="10" Background="GhostWhite">
         <Grid>
             <TextBlock TextWrapping="Wrap" Margin="404,10,406,680" FontSize="36" FontWeight="Bold"><Run Text="Renta y Devoluci"/><Run Text="ón"/></TextBlock>
-            <DataGrid HorizontalAlignment="Left" Height="486" Margin="10,210,0,0" VerticalAlignment="Top" Width="970"/>
+            <DataGrid x:Name="datagrid"  CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      CanUserReorderColumns="False"
+                      CanUserResizeColumns="False"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="TRUE"
+                      HorizontalAlignment="Left" Height="486" Margin="10,210,0,0" VerticalAlignment="Top" Width="970" SelectionChanged="datagrid_SelectionChanged" FontSize="20"/>
             <ComboBox x:Name="cbxvehiculos" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" Width="234" Height="40" FontWeight="Bold" FontSize="15"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Vehículo" Width="234"/>
-            <ComboBox x:Name="cbxvehiculos_Copy" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top" Width="234" Height="40" FontWeight="Bold" FontSize="15"/>
             <TextBlock HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Vehículo" Width="234"/>
-            <ComboBox x:Name="cbxvehiculos_Copy1" HorizontalAlignment="Left" Margin="270,152,0,0" VerticalAlignment="Top" Width="234" Height="40" FontWeight="Bold" FontSize="15"/>
+            <ComboBox x:Name="cbxcliente" HorizontalAlignment="Left" Margin="270,152,0,0" VerticalAlignment="Top" Width="234" Height="40" FontWeight="Bold" FontSize="15"/>
             <TextBlock HorizontalAlignment="Left" Margin="270,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Cliente" Width="234"/>
-            <TextBlock HorizontalAlignment="Left" Margin="542,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Inicio" Width="68" RenderTransformOrigin="0.5,0.5">
+            <TextBlock HorizontalAlignment="Left" Margin="542,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Inicio" Width="68" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -26,7 +33,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="761,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Fin" Width="68" RenderTransformOrigin="0.5,0.5">
+            <TextBlock HorizontalAlignment="Left" Margin="544,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Fin" Width="68" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -36,11 +43,13 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <DatePicker HorizontalAlignment="Left" Margin="542,152,0,0" VerticalAlignment="Top" Width="201" FontSize="16" FontWeight="Bold"/>
-            <DatePicker HorizontalAlignment="Left" Margin="759,152,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="184"/>
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="979,152,0,0" VerticalAlignment="Top" Width="137" Height="40" Cursor="Hand" Background="#FF11A6BD" Foreground="White" FontWeight="Bold" FontSize="16"/>
+            <DatePicker x:Name="iniciodp" HorizontalAlignment="Left" Margin="542,118,0,0" VerticalAlignment="Top" Width="201" FontSize="16" FontWeight="Bold"/>
+            <DatePicker x:Name="findp" HorizontalAlignment="Left" Margin="542,171,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Width="201"/>
+            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="979,152,0,0" VerticalAlignment="Top" Width="137" Height="40" Cursor="Hand" Background="#FF11A6BD" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnBuscar_Click"/>
             <Button x:Name="btnBuscar_Copy" Content="Rentar" HorizontalAlignment="Left" Margin="985,254,0,0" VerticalAlignment="Top" Width="137" Height="40" Cursor="Hand" Background="#FF57BD11" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnBuscar_Copy_Click"/>
-            <Button x:Name="btnBuscar_Copy1" Content="Devolver" HorizontalAlignment="Left" Margin="985,318,0,0" VerticalAlignment="Top" Width="137" Height="40" Cursor="Hand" Background="#FFC1600F" Foreground="White" FontWeight="Bold" FontSize="16"/>
+            <Button x:Name="btnDevolver" Content="Devolver" HorizontalAlignment="Left" Margin="985,318,0,0" VerticalAlignment="Top" Width="137" Height="40" Cursor="Hand" Background="#FFC1600F" Foreground="White" FontWeight="Bold" FontSize="16" Click="btnBuscar_Copy1_Click" Visibility="Hidden"/>
+            <ComboBox x:Name="cbxestado" HorizontalAlignment="Left" Margin="766,157,0,0" VerticalAlignment="Top" Width="172" Height="40" FontWeight="Bold" FontSize="15"/>
+            <TextBlock HorizontalAlignment="Left" Margin="766,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Estado" Width="172"/>
         </Grid>
 
     </Border>
