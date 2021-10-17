@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0050: Convertir a tupla
+dotnet_diagnostic.IDE0050.severity = none

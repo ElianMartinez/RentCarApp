@@ -18,15 +18,20 @@
                       GridLinesVisibility="Horizontal"
                       IsReadOnly="True"
                       AutoGenerateColumns="True"
-                      HorizontalGridLinesBrush="#005990" HorizontalAlignment="Left" Height="534" Margin="35,176,0,0" VerticalAlignment="Top" Width="1075" RenderTransformOrigin="-0.33,0.16">
+                      HorizontalGridLinesBrush="#005990" HorizontalAlignment="Left" Height="534" Margin="35,176,0,0" VerticalAlignment="Top" Width="1075" RenderTransformOrigin="-0.33,0.16" MouseDoubleClick="datagrid_MouseDoubleClick" SelectionChanged="datagrid_SelectionChanged">
                 <!--<DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding ID_EMPLEADO}" Width="*" />
-                    <DataGridTextColumn Header="Nombre" Binding="{Binding NOMBRE}"  Width="*" />
+                    <DataGridTextColumn Header="Id" Binding="{Binding ID_INSPECCION}" Width="*" />
+                    <DataGridTextColumn Header="Vehículo" Binding="{Binding VEHICULO.MARCA.DESCRIPCION}"  Width="*" />
                     <DataGridTextColumn Header="Cédula" Binding="{Binding CEDULA}"  Width="*" />
                     <DataGridTextColumn Header="Estado" Binding="{Binding ESTADO}"  Width="*" />
                 </DataGrid.Columns>-->
             </DataGrid>
-            <Button Content="Nuevo" HorizontalAlignment="Left" Margin="35,121,0,0" VerticalAlignment="Top" Width="197" Height="39" Background="#FF44B82A" BorderBrush="#FF239112" Foreground="White" FontWeight="Bold" FontSize="18" Click="Button_Click">
+            <Button Content="Nuevo" HorizontalAlignment="Left" Margin="35,121,0,0" VerticalAlignment="Top" Width="197" Height="39" Background="#FF44B82A" BorderBrush="#FF239112" Foreground="White" FontWeight="Bold" FontSize="18" Click="Button_Click" Cursor="Hand">
+                <Button.Effect>
+                    <BlurEffect Radius="0"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="294,121,0,0" VerticalAlignment="Top" Width="197" Height="39" Background="#FFD44712" BorderBrush="#FF239112" Foreground="White" FontWeight="Bold" FontSize="18" Click="borrar_click" Cursor="Hand" Visibility="Hidden">
                 <Button.Effect>
                     <BlurEffect Radius="0"/>
                 </Button.Effect>

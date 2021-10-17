@@ -7,10 +7,43 @@
              mc:Ignorable="d" 
             d:DesignHeight="745" d:DesignWidth="1149" Background="Transparent">
     <Border CornerRadius="10" Background="GhostWhite">
-        <Grid>
-            <TextBlock HorizontalAlignment="Left" Margin="472,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Hola Estas en eun lugar bello"/><LineBreak/><Run/></TextBlock>
-            <Button Content="Volver&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,32,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click" Height="28" Background="#FFD6AB37" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+        <Grid RenderTransformOrigin="0.485,0.619">
+            <TextBlock HorizontalAlignment="Left" Margin="419,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="38" Height="66"><Run Text="Agregar Inspecci"/><Run Text="ó"/><Run Text="n"/></TextBlock>
+            <Button Content="Volver&#xD;&#xA;" HorizontalAlignment="Left" Margin="24,25,0,0" VerticalAlignment="Top" Width="179" Click="Button_Click" Height="39" Background="#FFD6AB37" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+            <ComboBox x:Name="cbxvehiculos" HorizontalAlignment="Left" Margin="33,128,0,0" VerticalAlignment="Top" Width="327" Height="40" FontWeight="Bold" FontSize="15"/>
+            <TextBlock HorizontalAlignment="Left" Margin="33,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Vehículo" Width="327"/>
+            <ComboBox x:Name="cbxcliente" HorizontalAlignment="Left" Margin="419,128,0,0" VerticalAlignment="Top" Width="327" Height="40" FontWeight="Bold" FontSize="15"/>
+            <TextBlock HorizontalAlignment="Left" Margin="419,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Width="327"><Run Text="Cliente"/><LineBreak/><Run/></TextBlock>
+            <ComboBox x:Name="cbxempleado" HorizontalAlignment="Left" Margin="792,128,0,0" VerticalAlignment="Top" Width="327" Height="40" FontWeight="Bold" FontSize="15"/>
+            <TextBlock HorizontalAlignment="Left" Margin="792,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Width="327"><Run Text="Empleado"/><LineBreak/><Run/></TextBlock>
 
+            <Image  Source="/Assets/carPNG.png" HorizontalAlignment="Left" Height="201" Margin="379,354,0,0" VerticalAlignment="Top" Width="421" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <CheckBox x:Name="checkg2" Content="Goma 2" HorizontalAlignment="Left" Margin="689,315,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="102" Height="35"/>
+            <CheckBox x:Name="checkg4" Content="Goma 4" HorizontalAlignment="Left" Margin="689,562,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="102" Height="40"/>
+            <CheckBox x:Name="checg1" Content="Goma 1" HorizontalAlignment="Left" Margin="386,316,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="102" Checked="CheckBox_Checked_1" Height="34"/>
+            <CheckBox x:Name="checkg3" Content="Goma 3" HorizontalAlignment="Left" Margin="386,562,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="102" Checked="CheckBox_Checked_2" Height="40"/>
+            <CheckBox x:Name="rayaduras" Content="Rayaduras" HorizontalAlignment="Left" Margin="526,315,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="124" Checked="CheckBox_Checked_1" Foreground="Black" Height="35"/>
+            <CheckBox x:Name="gomarepuesto" Content="Goma de Repuesto" HorizontalAlignment="Left" Margin="880,628,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="191" Checked="CheckBox_Checked_1" Height="40"/>
+            <ComboBox x:Name="cbxcombus" HorizontalAlignment="Left" Margin="33,325,0,0" VerticalAlignment="Top" Width="223" Height="40" FontWeight="Bold" FontSize="15"/>
+            <TextBlock HorizontalAlignment="Left" Margin="33,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Width="223"><Run Text="Cantidad de Combistible"/><LineBreak/><Run/></TextBlock>
+            <CheckBox x:Name="checkcristalroto" Content="Cristal Roto" HorizontalAlignment="Left" Margin="526,395,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="146" Checked="CheckBox_Checked_1" Foreground="White" Height="40"/>
+            <CheckBox x:Name="checkgato" Content="Tiene Gato" HorizontalAlignment="Left" Margin="893,393,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Width="191" Checked="CheckBox_Checked_1" Height="42"/>
+            <ComboBox x:Name="cbxestado" HorizontalAlignment="Left" Margin="33,585,0,0" VerticalAlignment="Top" Width="223" Height="40" FontWeight="Bold" FontSize="15"/>
+            <TextBlock HorizontalAlignment="Left" Margin="33,561,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Width="223" RenderTransformOrigin="-2.834,-0.083" Text="Estado"/>
+            <DatePicker x:Name="datepicker" HorizontalAlignment="Left" Margin="33,440,0,0" VerticalAlignment="Top" Height="40" Width="223" FontWeight="Bold" FontSize="18"/>
+            <Button x:Name="guardar" Content="Guardar" HorizontalAlignment="Left" Margin="939,25,0,0" VerticalAlignment="Top" Width="180" Click="guardar_click" Height="39" Background="#FF039E4A" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+            <TextBlock HorizontalAlignment="Left" Margin="33,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Width="223" Text="Fecha"/>
+            <Image Source="/Assets/gato.png" HorizontalAlignment="Left" Height="139" Margin="880,260,0,0" VerticalAlignment="Top" Width="185"/>
+            <Image Source="/RentCarApp;component/Assets/goma.png" HorizontalAlignment="Left" Height="139" Margin="912,484,0,0" VerticalAlignment="Top" Width="110"/>
 
         </Grid>
     </Border>

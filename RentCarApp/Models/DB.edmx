@@ -75,10 +75,10 @@
           <Property Name="ID_VEHICULO" Type="int" Nullable="false" />
           <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
           <Property Name="FECHA_RENTA" Type="date" Nullable="false" />
-          <Property Name="FEHCA_DEVOLUCION" Type="date" Nullable="false" />
+          <Property Name="FEHCA_DEVOLUCION" Type="date" />
           <Property Name="MONTO_DIA" Type="money" Nullable="false" />
           <Property Name="CANTIDAD_DIAS" Type="int" Nullable="false" />
-          <Property Name="COMENTARIO" Type="text" Nullable="false" />
+          <Property Name="COMENTARIO" Type="text" />
           <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -395,10 +395,10 @@
           <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" />
           <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
           <Property Name="FECHA_RENTA" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FEHCA_DEVOLUCION" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FEHCA_DEVOLUCION" Type="DateTime" Precision="0" DefaultValue="NULL" />
           <Property Name="MONTO_DIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="CANTIDAD_DIAS" Type="Int32" Nullable="false" />
-          <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" DefaultValue="NULL" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTES" Relationship="Self.FK_RENTA_CLIENTES" FromRole="RENTA" ToRole="CLIENTES" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_RENTA_EMPLEADO" FromRole="RENTA" ToRole="EMPLEADO" />
@@ -438,9 +438,9 @@
           </Key>
           <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NO_CHASIS" Type="String" Nullable="false" />
-          <Property Name="NO_MOTOR" Type="String" Nullable="false" />
-          <Property Name="NO_PLACA" Type="String" Nullable="false" />
+          <Property Name="NO_CHASIS" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NO_MOTOR" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NO_PLACA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="ID_TIPO_VEHICULO" Type="Int32" Nullable="false" />
           <Property Name="ID_MARCA" Type="Int32" Nullable="false" />
           <Property Name="ID_MODELO" Type="Int32" Nullable="false" />

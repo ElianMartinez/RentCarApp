@@ -44,8 +44,8 @@
             <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="928,181,0,0" VerticalAlignment="Top" Width="146" Height="39" Background="#FFD17D28" Foreground="White" FontWeight="Bold" Click="btnCancelar_Click" Cursor="Hand" FontSize="16"/>
             <TextBox x:Name="txtNoTarjeta" HorizontalAlignment="Left" Height="38" Margin="656,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" FontSize="18"/>
             <ComboBox SelectedValuePath="Tag" x:Name="cbxTipoPersona" HorizontalAlignment="Left" Margin="252,179,0,0" VerticalAlignment="Top" Width="178" Height="38" FontSize="18" FontWeight="Bold">
-                <ComboBoxItem Tag="Jurídica" IsSelected="True" Content="Jurídica"/>
-                <ComboBoxItem Tag="Normal" Content="Normal" />
+                <ComboBoxItem Tag="Jurídica" Content="Jurídica"/>
+                <ComboBoxItem Tag="Física"  IsSelected="True" Content="Física" />
             </ComboBox>
 
 

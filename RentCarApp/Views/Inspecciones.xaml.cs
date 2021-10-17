@@ -44,8 +44,58 @@ namespace RentCarApp.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var a = new EditarInspecciones(_mainWindow, ID, false);
+            var a = new EditarInspecciones(_mainWindow, ID);
             _mainWindow.ChangeContext(a);
+        }
+
+        private void datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (datagrid.SelectedItem != null)
+            {
+                var a = new EditarInspecciones(_mainWindow, ID);
+            _mainWindow.ChangeContext(a);
+            }
+        }
+
+        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(datagrid.SelectedItem != null)
+            {
+                Models.INSPECCIONES dato = (Models.INSPECCIONES)datagrid.SelectedItem;
+                ID = dato.ID_INSPECCION;
+                btnBorrar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnBorrar.Visibility = Visibility.Hidden;
+
+            }
+        }
+
+        private void borrar_click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result1 = MessageBox.Show("Está seguro de borrar este registro?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result1 == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    using (var db = new Models.rentcarEntities())
+                    {
+                        var result = db.INSPECCIONES.First(a => a.ID_INSPECCION == ID);
+                        db.INSPECCIONES.Remove(result);
+                        db.SaveChanges();
+                        Refresh();
+                    }
+                }
+                catch (Exception err)
+                {
+                    if (err.HResult == -2146233087)
+                    {
+                        MessageBox.Show("No se puede borrar este registro.", "Registro tiene referencias", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
         }
     }
 

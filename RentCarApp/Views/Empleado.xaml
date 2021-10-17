@@ -10,17 +10,20 @@
     <Border CornerRadius="10" Background="GhostWhite">
         <Grid Margin="-10,0,10,0">
             <TextBlock HorizontalAlignment="Left" Margin="396,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Foreground="#FF005990"><Run Text="Mantenimineto de Empleados"/><LineBreak/><Run/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="61,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="Nombre"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="61,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="24"><Run Text="Nombre"/><LineBreak/><InlineUIContainer>
+                    <ComboBox Width="120"/>
+                </InlineUIContainer></TextBlock>
             <TextBox x:Name="txtnombre" HorizontalAlignment="Left" Height="38" Margin="61,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="18"/>
             <TextBlock HorizontalAlignment="Left" Margin="356,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="C"/><Run Text="édula"/></TextBlock>
             <TextBox x:Name="txtcedula" HorizontalAlignment="Left" Height="38" Margin="356,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" FontSize="18"/>
             <ComboBox x:Name="cbxtandal" HorizontalAlignment="Left" Margin="656,106,0,0" VerticalAlignment="Top" Width="202" Height="38" FontSize="18" FontWeight="Bold">
-                <ComboBoxItem Tag="Jornada completa" >Jornada completa</ComboBoxItem>
-                <ComboBoxItem Tag="Jornada parcial" IsSelected="True">Jornada parcial</ComboBoxItem>
+                <ComboBoxItem Tag="Matutina" >Matutina</ComboBoxItem>
+                <ComboBoxItem Tag="Vespertina" IsSelected="True">Vespertina</ComboBoxItem>
+                <ComboBoxItem Tag="Nocturna" >Nocturna</ComboBoxItem>
             </ComboBox>
-            <TextBlock HorizontalAlignment="Left" Margin="656,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="Tanda Laboral"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="656,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="21"><Run Text="Tanda Laboral"/><LineBreak/><Run/></TextBlock>
             <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="928,105,0,0" VerticalAlignment="Top" Width="146" Height="39" Background="#FF4ED128" Foreground="White" FontWeight="Bold" Click="Button_Click" Cursor="Hand" FontSize="16" ClipToBounds="True"/>
-            <TextBlock HorizontalAlignment="Left" Margin="61,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="Porcient"/><Run Text="o de comisi"/><Run Text="ó"/><Run Text="n"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="61,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Height="21"><Run Text="Porcient"/><Run Text="o de comisi"/><Run Text="ó"/><Run Text="n"/><LineBreak/><Run/></TextBlock>
             <TextBox x:Name="txtcomision" HorizontalAlignment="Left" Height="38" Margin="61,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" FontSize="18"/>
             <TextBlock HorizontalAlignment="Left" Margin="252,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"><Run Text="Fecha"/><Run Text=" de"/><Run Text=" Ingreso"/></TextBlock>
             <ComboBox SelectedValuePath="Tag" x:Name="cbxestado" HorizontalAlignment="Left" Margin="523,181,0,0" VerticalAlignment="Top" Width="130" Height="38" FontSize="18" FontWeight="Bold">
