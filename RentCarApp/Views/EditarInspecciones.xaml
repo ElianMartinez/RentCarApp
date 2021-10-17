@@ -8,7 +8,7 @@
             d:DesignHeight="745" d:DesignWidth="1149" Background="Transparent">
     <Border CornerRadius="10" Background="GhostWhite">
         <Grid RenderTransformOrigin="0.485,0.619">
-            <TextBlock HorizontalAlignment="Left" Margin="419,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="38" Height="66"><Run Text="Agregar Inspecci"/><Run Text="ó"/><Run Text="n"/></TextBlock>
+            <TextBlock x:Name="txttitle" HorizontalAlignment="Left" Margin="419,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="38" Height="66"><Run Text="Agregar Inspecci"/><Run Text="ó"/><Run Text="n"/></TextBlock>
             <Button Content="Volver&#xD;&#xA;" HorizontalAlignment="Left" Margin="24,25,0,0" VerticalAlignment="Top" Width="179" Click="Button_Click" Height="39" Background="#FFD6AB37" Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
             <ComboBox x:Name="cbxvehiculos" HorizontalAlignment="Left" Margin="33,128,0,0" VerticalAlignment="Top" Width="327" Height="40" FontWeight="Bold" FontSize="15"/>
             <TextBlock HorizontalAlignment="Left" Margin="33,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="24" Text="Vehículo" Width="327"/>

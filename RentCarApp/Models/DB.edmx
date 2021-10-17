@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="rentcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="rentcarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CLIENTES">
           <Key>
             <PropertyRef Name="ID_CLIENTE" />
@@ -310,7 +310,8 @@
             <End Role="VEHICULOS" EntitySet="VEHICULOS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="rentcarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -395,10 +396,10 @@
           <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" />
           <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
           <Property Name="FECHA_RENTA" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FEHCA_DEVOLUCION" Type="DateTime" Precision="0" DefaultValue="NULL" />
+          <Property Name="FEHCA_DEVOLUCION" Type="DateTime" Precision="0" />
           <Property Name="MONTO_DIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="CANTIDAD_DIAS" Type="Int32" Nullable="false" />
-          <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" DefaultValue="NULL" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTES" Relationship="Self.FK_RENTA_CLIENTES" FromRole="RENTA" ToRole="CLIENTES" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_RENTA_EMPLEADO" FromRole="RENTA" ToRole="EMPLEADO" />
@@ -438,9 +439,9 @@
           </Key>
           <Property Name="ID_VEHICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NO_CHASIS" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="NO_MOTOR" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="NO_PLACA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NO_CHASIS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NO_MOTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NO_PLACA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_TIPO_VEHICULO" Type="Int32" Nullable="false" />
           <Property Name="ID_MARCA" Type="Int32" Nullable="false" />
           <Property Name="ID_MODELO" Type="Int32" Nullable="false" />

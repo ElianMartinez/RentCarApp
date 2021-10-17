@@ -81,5 +81,11 @@ namespace RentCarApp
             var a = new Inspecciones(this);
             ChangeContext(a);
         }
+
+        private void BtnRent_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new RentaDevolucion(this);
+            ChangeContext(a);
+        }
     }
 }
