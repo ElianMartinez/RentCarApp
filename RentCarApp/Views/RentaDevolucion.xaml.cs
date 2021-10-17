@@ -76,7 +76,7 @@ namespace RentCarApp.Views
                                          ESTADO = r.ESTADO == "A" ? "ACTIVA" : r.ESTADO == "F" ? "FINALIZADA" : "CANCELADA",
                                          FECHA = r.FECHA_RENTA,
                                            EMPLEADO = emple.NOMBRE,
-                                           FECHA_D = (DateTime)r.FEHCA_DEVOLUCION,
+                                           FECHA_D = r.FEHCA_DEVOLUCION == null ? DateTime.MinValue : (DateTime)r.FEHCA_DEVOLUCION,
                                            NO_RENTA = r.NO_RENTA,
                                            ID_CLIENTE = cli.ID_CLIENTE,
                                            ID_VEHICULO = v.ID_VEHICULO
@@ -136,7 +136,7 @@ namespace RentCarApp.Views
                               MODELO = mod.DESCRIPCION,
                               ESTADO = r.ESTADO == "A" ? "ACTIVA" : r.ESTADO == "F" ? "FINALIZADA" : "CANCELADA",
                               FECHA = r.FECHA_RENTA,
-                              FECHA_D = (DateTime)r.FEHCA_DEVOLUCION,
+                              FECHA_D = r.FEHCA_DEVOLUCION == null ? DateTime.MinValue : (DateTime)r.FEHCA_DEVOLUCION ,
                               NO_RENTA = r.NO_RENTA,
                               EMPLEADO = emple.NOMBRE,
                               ID_CLIENTE = cli.ID_CLIENTE,

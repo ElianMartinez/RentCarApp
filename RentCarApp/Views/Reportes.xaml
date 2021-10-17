@@ -7,8 +7,9 @@
              mc:Ignorable="d" 
                   d:DesignHeight="745" d:DesignWidth="1149">
     <Border CornerRadius="10" Background="GhostWhite">
-    <Grid>
-            
-    </Grid>
+        <Grid Margin="-10,0,10,0">
+            <Button x:Name="btn" Content="Exportar a Excel" HorizontalAlignment="Left" Height="174" Margin="176,284,0,0" VerticalAlignment="Top" Width="768" Click="Button_Click" Background="#FF009C32" Foreground="White" FontSize="24" FontWeight="Bold" Cursor="Hand"/>
+
+        </Grid>
     </Border>
 </UserControl>

@@ -109,7 +109,7 @@ namespace RentCarApp.Views
         }
       async Task rentarAuto()
         {
-            if (cbxcliente.SelectedValue != null && cbxempleado.SelectedValue != null  && cbxvehiculos.SelectedValue != null && int.Parse(txtcantidaddias.Text) > 0 && int.Parse(txtporDias.Text) > 0  )
+            if (cbxcliente.SelectedValue != null && cbxempleado.SelectedValue != null  && cbxvehiculos.SelectedValue != null && int.Parse(txtcantidaddias.Text) > 0 && int.Parse(txtporDias.Text) > 0  && txtcantidaddias.Text != String.Empty && txtporDias.Text != String.Empty )
             {
                 using(var db = new Models.rentcarEntities())
                 {

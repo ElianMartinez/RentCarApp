@@ -29,6 +29,7 @@ namespace RentCarApp
             {
                 int cantidadVehiculos = db.VEHICULOS.Count();
             }
+            this.ChangeContext(new Home());
         }
 
         public void ChangeContext(object valor)
@@ -85,6 +86,12 @@ namespace RentCarApp
         private void BtnRent_Click(object sender, RoutedEventArgs e)
         {
             var a = new RentaDevolucion(this);
+            ChangeContext(a);
+        }
+
+        private void BtnReporte_Click(object sender, RoutedEventArgs e)
+        {
+            var a = new Reportes();
             ChangeContext(a);
         }
     }

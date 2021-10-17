@@ -37,7 +37,8 @@ namespace RentCarApp.Views
                 if (txtnombre.Text.Length > 0 && 
                     cbxestado.SelectedValue != null && 
                     txtcedula.Text.Length > 0 && 
-                    txtcomision.Text.Length > 0 && 
+                    txtcomision.Text.Length > 0 &&
+                    txtcedula.Text.Length == 11 &&
                     cbxtandal.SelectedValue != null &&
                     dpkFecha.SelectedDate != null)
                 {
@@ -66,6 +67,7 @@ namespace RentCarApp.Views
                     cbxestado.SelectedValue != null &&
                     txtcedula.Text.Length > 0 &&
                     txtcomision.Text.Length > 0 &&
+                    txtcedula.Text.Length == 11 &&
                     cbxtandal.SelectedValue != null
                     && dpkFecha.SelectedDate != null)
                 {

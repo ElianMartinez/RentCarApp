@@ -117,6 +117,7 @@ namespace RentCarApp.Views
                     cbxestado.SelectedValue != null &&
                     txtcedula.Text.Length > 0 &&
                     txtLimiteC.Text.Length > 0 &&
+                    txtcedula.Text.Length == 11 &&
                     txtNoTarjeta.Text != null &&
                     cbxTipoPersona.SelectedValue != null)
                 {
@@ -144,8 +145,10 @@ namespace RentCarApp.Views
                 if (txtnombre.Text.Length > 0 &&
                     cbxestado.SelectedValue != null &&
                     txtcedula.Text.Length > 0 &&
+                    txtcedula.Text.Length == 11 &&
                     txtLimiteC.Text.Length > 0 &&
                     txtNoTarjeta.Text != null &&
+                  decimal.Parse(txtLimiteC.Text) > 0 &&
                     cbxTipoPersona.SelectedValue != null)
                 {
 
